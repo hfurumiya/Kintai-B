@@ -1,0 +1,20 @@
+<% provide(:title, @user.name) %>
+
+<div>
+  <table class="table table-bordered table-condensed user-table">
+    <tr>
+      <td class="col-sm-4">(ここにカレンダー入る)時間管理表</td>
+      <td class="col-sm-3">指定勤務時間</td>
+      <td class="col-sm-3">基本時間</td>
+      <td class="col-sm-1">初日</td>
+    </tr>
+
+    <tr>
+      <td class="col-sm-4">所属</td>
+      <td class="col-sm-3">氏名：<%= @user.name %></td>
+      <td class="col-sm-1">コード</td>
+      <td class="col-sm-1">出勤日数</td>
+      <td class="col-sm-1">締め</td>
+    </tr>
+  </table>
+</div>
