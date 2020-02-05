@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'ログインできました'
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      remember user
-      redirect_to user
+      redirect_back_or user
     else
       flash.now[:warning] = '登録できませんでした'
       render :new

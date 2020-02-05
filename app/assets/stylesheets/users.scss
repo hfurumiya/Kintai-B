@@ -17,3 +17,18 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+.label-user--edit {
+  margin-top: 5px;
+}
+
+.btn-user--edit {
+  margin-top: 10px;
+}
+
+/* users => index.html.erbのユーザー情報テーブル */
+#table-users {
+  td {
+    vertical-align: middle;
+  }  
+}
