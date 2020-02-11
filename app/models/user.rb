@@ -7,9 +7,12 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 100 },
             format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+            
+  validates :department, length: { in: 2..50 }, allow_blank: true
+
   
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
   def User.digest(string)
     cost = 

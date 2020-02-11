@@ -3,9 +3,14 @@
 
   <%= f.label :name, "名前", class: "label-#{yield(:class_text)}" %>
   <%= f.text_field :name, class: "form-control" %>
+  
+  <p>111</p>
 
   <%= f.label :email, "メールアドレス", class: "label-#{yield(:class_text)}" %>
   <%= f.email_field :email, class: "form-control" %>
+  
+  <%= f.label :department, "所属部署", class: "label-#{yield(:class_text)}" %>
+  <%= f.text_field :department, class: "form-control" %>
 
   <%= f.label :password, "パスワード", class: "label-#{yield(:class_text)}" %>
   <%= f.password_field :password, class: "form-control" %>

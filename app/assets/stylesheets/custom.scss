@@ -75,11 +75,20 @@ p {
   float: left;
   width: 100%;
   margin-top: 45px;
-  // box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+
 }
 
 /* shared => _error.message.html.erb => error_messages */
 
 #individual_errors {
     color: red;
+}
+
+/* _edit_basic_info.html.erb　=> モーダルウインドー */
+
+.modal-dialog-center {
+  padding-top: 10%;
 }
