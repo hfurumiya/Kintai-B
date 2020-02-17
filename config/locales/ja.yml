@@ -41,7 +41,7 @@ ja:
       default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
       middle: "%Y年%m月"
-      short: "%-m/%-d"
+      short: "%m/%d"
     month_names:
     - 
     - 1月
@@ -128,7 +128,7 @@ ja:
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
-      required: を入力してくださいよ
+      required: を入力してください
       taken: はすでに存在します
       too_long: は%{count}文字以内で入力してyo
       too_short: は%{count}文字以上で入力してくださいne

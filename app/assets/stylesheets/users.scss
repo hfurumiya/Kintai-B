@@ -9,6 +9,19 @@
   text-align: center;
 }
 
+/* users => show.html.erb ユーザー一覧ページ*/
+
+#table-attendances {
+  th {
+    vertical-align: middle;
+    text-align: center;
+  }
+  td {
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
 .label-signup {
   margin-top: 5px;
 }
@@ -24,6 +37,13 @@
 
 .btn-user--edit {
   margin-top: 10px;
+}
+
+/* users => show.html.erb ユーザー一覧ページ*/
+#table-users {
+  td {
+    vertical-align: middle;
+  }  
 }
 
 /* users => index.html.erbのユーザー情報テーブル */
