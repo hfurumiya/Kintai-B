@@ -4,6 +4,31 @@ class ApplicationController < ActionController::Base
   
   $youbi = %w{日 月 火 水 木 金 土}
   
+    def logged_in_user
+        unless logged_in?
+          store_location
+          flash[:danger] = "ログインしてください。"
+          redirect_to login_url
+        end
+    end
+    
+    def set_user
+      @user = User.find(params[:id])
+    end
+    
+    def correct_user
+      @user = User.find(params[:id])
+      unless @user == current_user
+        redirect_to(root_url) 
+      end
+    end
+    
+    def admin_user
+      unless current_user.admin?
+        redirect_to root_url 
+      end
+    end
+  
   # ページ出力前に1ヶ月分のデータの存在を確認・セットします。
   def set_one_month 
     @first_day = params[:date].nil? ?

@@ -55,6 +55,9 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  def edit_basic_info
+  end
+  
   def update_basic_info
     if @user.update_attributes(basic_info_params)
       flash[:success] = "#{@user.name}の基本情報を更新しました。"
@@ -74,28 +77,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:department, :basic_time, :work_time)
     end
     
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください。"
-        redirect_to login_url
-      end
-    end
-    
-    def set_user
-      @user = User.find(params[:id])
-    end
-    
-    def correct_user
-      @user = User.find(params[:id])
-      unless @user == current_user
-        redirect_to(root_url) 
-      end
-    end
-    
-    def admin_user
-      unless current_user.admin?
-        redirect_to root_url 
-      end
-    end
 end
