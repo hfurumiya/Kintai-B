@@ -19,12 +19,14 @@ module SessionsHelper
   def log_out
     forget(current_user)
     session.delete(:user_id)
-    @current_user = nil
+    @current_user = nils
   end
 
   def current_user
-    if session[:user_id].present?
-      @current_user ||= User.find_by(id: session[:user_id])
+    # if session[:user_id].present?
+    if (user_id = session[:user_id])
+      # @current_user ||= User.find_by(id: session[:user_id])
+      @current_user ||= User.find_by(id: :user_id)
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])

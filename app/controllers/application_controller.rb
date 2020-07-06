@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   
   $youbi = %w{日 月 火 水 木 金 土}
   
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+    
     def logged_in_user
         unless logged_in?
           store_location
@@ -11,16 +16,11 @@ class ApplicationController < ActionController::Base
           redirect_to login_url
         end
     end
-    
-    def set_user
-      @user = User.find(params[:id])
-    end
+
     
     def correct_user
-      @user = User.find(params[:id])
-      unless @user == current_user
-        redirect_to(root_url) 
-      end
+      # @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
     
     def admin_user

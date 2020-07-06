@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update,:destroy, :edit_basic_info, :update_basic_info]
-  before_action :logged_in_user, only: [:show, :edit, :update, :index, :destroy, :edit_basic_info, :update_basic_info]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:destroy, :edit_basic_info, :update_basic_info]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info,]
+  before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :edit_basic_info, :update_basic_info, :show]
+  before_action :correct_user, only: [:edit, :update, :show]
+  before_action :admin_user, only: [:destroy, :edit_basic_info, :update_basic_info, :index, :show]
   before_action :set_one_month, only: :show
 
   
@@ -12,10 +12,6 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
-    
-    @first_day_month = Date.current.beginning_of_month
-    @last_day_month = @first_day_month.end_of_month
     
     @worked_sum = @attendances.where.not(started_at: nil).count
   end
@@ -37,7 +33,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
@@ -78,4 +73,20 @@ class UsersController < ApplicationController
       params.require(:user).permit(:department, :basic_time, :work_time)
     end
     
+    def logged_in_user
+      unless logged_in?
+         store_location
+        flash[:danger] = "ログインしてください"
+        redirect_to login_url
+      end
+    end
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
+    end
+    
+    def admin_user
+     redirect_to(root_url) unless current_user.admin?
+    end
 end
