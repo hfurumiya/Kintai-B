@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* all pages */
+/* universal */
 
 body {
   padding-top: 60px;
@@ -15,12 +15,17 @@ textarea {
   resize: vertical;
 }
 
+table {
+ vertical-align: middle;
+ text-align: center;
+}
+
 .center {
   text-align: center;
 }
 
 .center h1 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* typography */
@@ -52,7 +57,7 @@ p {
 
 /* header */
 
-#logo {
+.logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
@@ -63,14 +68,14 @@ p {
   font-weight: bold;
 }
 
-#logo:hover {
+.logo:hover {
   color: #fff;
   text-decoration: none;
 }
 
-/* debug errors */
+/* debug */
 
-.debug_bump {
+.debug_dump {
   clear: both;
   float: left;
   width: 100%;
@@ -78,21 +83,59 @@ p {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
-
 }
 
-/* shared => _error.message.html.erb => error_messages */
-
-#individual_errors {
-    color: red;
+.btn-signup{
+  margin-top: 10px;
 }
 
-/* _edit_basic_info.html.erb　=> モーダルウインドー */
+.error-explanation{
+  color: red;
+}
+
+.field_with_errors{
+  @extend .has-error;
+  .form-control{
+    color: $state-danger-text;
+  }
+}
+
+.btn-login{
+  margin-top: 20px;
+}
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+.checkbox_login{
+  width: auto;
+  margin-left: 25px;
+  span{
+    font-weight: normal;
+  }
+}
 
 .modal-dialog-center {
   padding-top: 10%;
 }
 
-.sat {
-  color: #0000ff;
+.change_month{
+  display: inline-block;
+}
+
+.sat{
+  color: blue;
+}
+
+.sun{
+  color: red;
+}
+
+.th-color{
+  color: red;
+}
+
+.name-search{
+  float: right;
 }
