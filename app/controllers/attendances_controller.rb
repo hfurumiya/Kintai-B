@@ -2,7 +2,7 @@ class AttendancesController < ApplicationController
   before_action :set_user, only: :edit_one_month
   before_action :logged_in_user, only: [:update, :edit_one_month]
   before_action :set_one_month, only: :edit_one_month
-  # before_action :admin_or_correct_user, only: [:update, :edit_one_month, :update_one_month, :show]
+  before_action :admin_or_correct_user, only: [:update, :edit_one_month, :update_one_month, :show]
   
   def update
     @user = User.find(params[:user_id])
@@ -46,12 +46,12 @@ class AttendancesController < ApplicationController
       params.require(:user).permit(attendances: [:started_at, :finished_at, :note])[:attendances]
     end
     
-    # def admin_or_correct_user
-    #   @user = User.find(params[:user_id]) if @user.blank?
-    #   unless current_user?(@user) || current_user.admin?
-    #     flash[:danger] = "編集権限がありません。"
-    #     redirect_to(root_url)
-    #   end  
-    # end
+    def admin_or_correct_user
+      @user = User.find(params[:user_id]) if @user.blank?
+      unless current_user?(@user) || current_user.admin?
+        flash[:danger] = "編集権限がありません。"
+        redirect_to(root_url)
+      end  
+    end
   
 end
