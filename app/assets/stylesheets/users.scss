@@ -1,59 +1,6 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-/* users => show.html.erbのユーザー情報テーブル */
-
-.user-table {
-  vertical-align: middle;
-  text-align: center;
-}
-
-/* users => show.html.erb ユーザー一覧ページ*/
-
-#table-attendances {
-  th {
-    vertical-align: middle;
-    text-align: center;
-  }
-  td {
-    vertical-align: middle;
-    text-align: center;
-  }
-}
-
-.label-signup {
-  margin-top: 5px;
-}
-
-.btn-signup {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.label-user--edit {
-  margin-top: 5px;
-}
-
-.btn-user--edit {
-  margin-top: 10px;
-}
-
-/* users => show.html.erb ユーザー一覧ページ*/
-#table-users {
-  td {
-    vertical-align: middle;
-  }  
-}
-
-/* users => index.html.erbのユーザー情報テーブル */
-#table-users {
-  td {
-    vertical-align: middle;
-  }  
-}
-
-/* users => _edit_basic_info.html.erb　=> モーダルウインドー */
 .label-basic-info {
   margin-top: 5px;
 }
@@ -62,5 +9,3 @@
   margin: 15px 0;
   width: 30%;
 }
-
-
