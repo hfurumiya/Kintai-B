@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
   
   
   def set_user
-    @user = User.find(params[:id])
+    if @user != User.find(params[:id])
+      redirect_to root_url
+    end
   end
 
     # ログイン済みのユーザーか確認します。
